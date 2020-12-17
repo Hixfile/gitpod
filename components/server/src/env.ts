@@ -8,7 +8,7 @@ import { injectable } from 'inversify';
 
 import { GitpodHostUrl } from '@gitpod/gitpod-protocol/lib/util/gitpod-host-url';
 import { AbstractComponentEnv, getEnvVar } from '@gitpod/gitpod-protocol/lib/env';
-import { AuthProviderParams, parseAuthProviderParamsFromEnv } from './auth/auth-provider';
+import { AuthProviderParams } from './auth/auth-provider';
 
 import * as fs from "fs";
 import { Branding, NamedWorkspaceFeatureFlag, WorkspaceFeatureFlags } from '@gitpod/gitpod-protocol';
@@ -89,8 +89,8 @@ export class Env extends AbstractComponentEnv {
     readonly authProviderConfigs = this.parseAuthProviderParamss();
 
     protected parseAuthProviderParamss(): AuthProviderParams[] {
-        const envVar = getEnvVar('AUTH_PROVIDERS_CONFIG');
-        return parseAuthProviderParamsFromEnv(JSON.parse(envVar));
+        // const envVar = getEnvVar('AUTH_PROVIDERS_CONFIG');
+        return [];
     }
 
     readonly brandingConfig = this.parseBrandingConfig();
